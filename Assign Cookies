@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int findContentChildren(vector<int>& g, vector<int>& s) 
+    {
+        sort(s.begin(),s.end());
+        int sol=0;
+        for(int i=0;i<g.size();i++)
+        {
+            auto index=lower_bound(s.begin(),s.end(),g[i]);
+            if(index!=s.end())
+            {
+                sol++;
+                s.erase(index);
+            }
+
+        }
+        return sol;
+    }
+};
